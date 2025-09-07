@@ -2,7 +2,7 @@ import cartIcon from '../assets/images/icon-cart.svg'
 
 const Navbar = () => {
   return (
-    <div className='flex justify-between items-center px-3 py-3 bg-gray-50 shadow sm:px-5 md:px-10 lg:px-24'>
+    <div className='flex justify-between items-center px-3 py-3 bg-gray-50 shadow sm:px-5 md:px-10 lg:px-24 fixed top-0 w-full'>
         <h1 className='text-gray-800 text-2xl'>store</h1>
         <button className='relative cursor-pointer active:scale-105'>
             <img src={cartIcon} alt="" className='size-6'/>
