@@ -9,6 +9,7 @@ type StoreItemProps = {
 const StoreItem = ({ item }: StoreItemProps) => {
   const {getItemQuantity, increaseCartQuantity, decreaseCartQuantity, removeFromCart} = useShoppingCart()
   const quantity = getItemQuantity(item.id)
+  
   return (
     <div className="w-fit bg-gray-50">
       <img src={item.image} alt={item.name} className=" rounded-md" />
