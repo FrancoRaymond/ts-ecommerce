@@ -18,13 +18,22 @@ const Cart = ({isOpen}: ShoppingCartProps) => {
           <h3 className='font-semibold'>Cart</h3>
           <button onClick={closeCart} className='cursor-pointer'><img src={close} alt="" /></button>
         </div>
-        <div className='flex flex-col gap-3 mt-4'>
-          {
-            cartItems.map(item => (
-              <CartItem key={item.id} {...item} />
-            ))
-          }
-        </div>
+        {
+          cartItems.length === 0 ? 
+          (
+          <div className='bg-gray-100 py-5 text-center text-sm text-gray-600 mt-5'>
+            Cart empty
+          </div>
+          ) : 
+          (
+          <div className='flex flex-col gap-3 mt-4'>
+            {
+              cartItems.map(item => (
+                <CartItem key={item.id} {...item} />
+              ))
+            }
+          </div>)
+        }
         <span className='mt-5 font-semibold ml-auto'>Total: {CurrencyFormatter(cartItems.reduce((total, ci) => {
           const item = items.find(i => i.id === ci.id)
           return total + (item?.price || 0) * ci.quantity
